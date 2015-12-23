@@ -1,0 +1,25 @@
+<zk>
+	<window border="normal" title="hello"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.github.samuelbr.zk.mvvm.ml.MemoryLeakViewModel')">
+		
+		<vbox>
+		Components count:
+		<label value="@load(vm.componentsCount)"></label>
+		
+		<button onClick="@command('doMemoryLeak')">
+			Do memory leak
+		</button>
+		</vbox>
+		
+		<grid model="@load(vm.model)">
+			<template name="model">
+				<row>
+					<label value="@load(each.data)"/>
+				</row>
+			</template>
+		</grid>
+
+
+	</window>
+</zk>
